@@ -1,0 +1,55 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  setup_environment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the main branch
+        uses: actions/checkout@v3
+
+      - name: Install Node 22
+        uses: actions/setup-node@v2
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Check if package-lock.json exists
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "Error: package-lock.json not found."
+            exit 1
+          fi
+
+      - name: Install Packages
+        run: npm install
+
+      - name: Build Site
+        env:
+          BASE_PATH: '/${{ github.event.repository.name }}'
+        run: npm run build
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'build/'
+
+  deploy_site:
+    runs-on: ubuntu-latest
+    needs: setup_environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
