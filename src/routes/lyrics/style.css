@@ -1,0 +1,134 @@
+main {
+    margin: auto;
+    width: 50%;
+}
+
+.no_padding_no_margin {
+    padding: 0;
+    margin: 0;
+}
+
+.inline {
+    display: inline;
+}
+
+#top_section {
+    display: flex;
+    gap: 30px;
+}
+
+#song_cover_img_top {
+    height: 100%;
+    max-height: 300px;
+    aspect-ratio: 1;
+}
+
+#song_title {
+    font-feature-settings: "ss07", "ss08", "ss11", "ss12", "ss14", "ss15", "ss16", "ss18", "ss19", "ss20", "ss21";
+    font-size: 39pt;
+}
+
+#artist {
+    font-size: large;
+}
+
+#right_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#stats_bar {
+    gap: 10px;
+    display: flex;
+}
+
+.statistic {
+    display: flex;
+    gap: 7px;
+}
+
+.statistic * {
+    align-self: center;
+}
+
+#about_container {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 4;
+}
+
+.highlight {
+    background-color: color-mix(in srgb, var(--bg-dialog) 60%, var(--text) 40%) !important;
+}
+
+#lyrics_container {
+    width: 70%;
+}
+
+#lyrics_container a:not(#lyrics_container a[data-real-link*=true]) {
+    background-color: color-mix(in srgb, var(--bg-dialog) 80%, var(--text) 20%);
+}
+
+#lyrics_container a[data-classification*=cosigned] {
+    background-color: color-mix(in srgb, yellow 70%, black 30%) !important;
+    color: black;
+}
+
+#lyrics_container a[data-classification*=cosigned].highlight {
+    background-color: color-mix(in srgb, yellow 80%, black 20%) !important;
+}
+
+#lyrics_container a[data-classification*=verified] {
+    background-color: yellow !important;
+    color: black;
+}
+
+#lyrics_container a[data-classification*=verified].highlight {
+    background-color: color-mix(in srgb, white 70%, yellow 30%) !important;
+    color: black;
+}
+
+#lyrics_container a.unreviewed {
+    background-color: color-mix(in srgb, color-mix(in srgb, var(--bg-dialog) 80%, var(--text) 20%) 70%, red 30%) !important;
+}
+#lyrics_container a.unreviewed.highlight {
+    background-color: color-mix(in srgb, color-mix(in srgb, color-mix(in srgb, var(--bg-dialog) 80%, var(--text) 20%) 70%, red 30%) 70%, white 30%) !important;
+}
+
+#annotation_bar {
+    max-width: 500px;
+}
+
+#lyrics_section {
+    display: flex;
+}
+
+#annotation_bar_spacer {
+    top: 0;
+    width: 100%;
+}
+
+#annotation_bar_content {
+    width: 100%;
+}
+
+#annotation_bar_content img {
+    width: 100%;
+    height: auto;
+}
+
+#annotation_bar_quote {
+    background-color: var(--text);
+    color: var(--bg-dialog);
+}
+
+blockquote {
+    border-left: 4px solid var(--text);
+    margin-left: 0;
+    padding-left: 10px;
+}

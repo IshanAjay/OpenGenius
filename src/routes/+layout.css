@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Programme";
+  font-weight: lighter;
+  font-style: normal;
+  src: url("$lib/static/fonts/programme/programme_light.woff2");
+}
+
+@font-face {
+  font-family: "Programme";
+  font-weight: lighter;
+  font-style: italic;
+  src: url("$lib/static/fonts/programme/programme_light_italic.woff2");
+}
+
+@font-face {
+  font-family: "Programme";
+  font-weight: normal;
+  font-style: normal;
+  src: url("$lib/static/fonts/programme/programme_normal.woff2");
+}
+
+@font-face {
+  font-family: "Programme";
+  font-weight: normal;
+  font-style: italic;
+  src: url("$lib/static/fonts/programme/programme_normal_italic.woff2");
+}
+
+body {
+  margin: 0;
+  font-family: "Programme", "Roboto";
+  --bg: #050035;
+  --bg-dialog: #07004b;
+  --text: #fff;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body a {
+  color: var(--text);
+}
+
+body svg {
+  fill: var(--text);
+}
